@@ -3,13 +3,13 @@ from obd_gui import *
 
 # Methods for updating stats
 def new_rpm(raw_rpm):
-	rpm = raw_rpm.split('.')[0]
+	rpm = str(raw_rpm).split('.')[0]
 	rpm_lbl.configure(text=rpm + " RPM")
 	bar_num = int((int(rpm) / 3000) * 100)
 	rpm_bar['value'] = bar_num
 
 def new_speed(raw_speed):
-	kph = raw_speed.split(' ')[0]
+	kph = str(raw_speed).split(' ')[0]
 	mph = str(int(float(kph) * 0.6214))
 	mph_lbl.configure(text=mph + " MPH")
 
