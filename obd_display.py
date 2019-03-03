@@ -44,12 +44,12 @@ try:
 	# Set up codes to watch with callbacks
 	connection.watch(obd.commands.RPM, callback=new_rpm)
 	connection.watch(obd.commands.SPEED, callback=new_speed)
-	connection.watch(obd.commands.AIR_STATUS, callback=new_air_status)
-	connection.watch(obd.commands.FUEL_RATE, callback=new_fuel_rate)
-	connection.watch(obd.commands.OIL_TEMP, callback=new_oil_temp)
-	connection.watch(obd.commands.FUEL_LEVEL, callback=new_fuel_lvl)
-	connection.watch(obd.commands.FUEL_TYPE, callback=new_fuel_type)
-	connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
+	#connection.watch(obd.commands.AIR_STATUS, callback=new_air_status)
+	#connection.watch(obd.commands.FUEL_RATE, callback=new_fuel_rate)
+	#connection.watch(obd.commands.OIL_TEMP, callback=new_oil_temp)
+	#connection.watch(obd.commands.FUEL_LEVEL, callback=new_fuel_lvl)
+	#connection.watch(obd.commands.FUEL_TYPE, callback=new_fuel_type)
+	#connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
 	
 	# Start monitoring
 	connection.start()
