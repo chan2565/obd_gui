@@ -39,8 +39,9 @@ def new_fuel_status(raw_fuel_status):
 
 try:
 	# Start async connection to OBD adapter
-	connection = obd.Async(baudrate=9600)
-	
+	#connection = obd.Async(baudrate=9600)
+	connection = obd.Async()
+
 	# Set up codes to watch with callbacks
 	connection.watch(obd.commands.RPM, callback=new_rpm)
 	connection.watch(obd.commands.SPEED, callback=new_speed)
@@ -50,7 +51,7 @@ try:
 	#connection.watch(obd.commands.FUEL_LEVEL, callback=new_fuel_lvl)
 	#connection.watch(obd.commands.FUEL_TYPE, callback=new_fuel_type)
 	#connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
-	
+
 	# Start monitoring
 	connection.start()
 	conn_lbl.configure(text=connection.status())
