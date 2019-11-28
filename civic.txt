@@ -51,3 +51,31 @@ b'0211': DTC Throttle Position
 b'0204': DTC Calculated Engine Load
 b'010E': Timing Advance
 
+==For the GUI==
+b'0104': Calculated Engine Load*
+b'ATRV': Voltage detected by OBD-II adapter*
+b'010F': Intake Air Temp*
+b'0103': Fuel System Status*
+b'010D': Vehicle Speed*
+b'0111': Throttle Position*
+b'010C': Engine RPM*
+b'0105': Engine Coolant Temperature*
+b'010E': Timing Advance*
+
+==Layout==
+Column 0:
+  Row 0: Connection Status
+  Row 1: Vehicle Speed*
+  Row 2: Engine RPM*
+  Row 3: RPM Bar
+  Row 4: Shift Label
+  Row 5: Voltage detected by OBD-II adapter*
+  Row 6: Fuel System Status*
+Column 1:
+  Row 0: Quit Button
+  Row 1: Engine Coolant Temperature*
+  Row 2: Calculated Engine Load*
+  Row 3: Engine Load Bar
+  Row 4: Intake Air Temp*
+  Row 5: Throttle Position*
+  Row 6: Timing Advance*
