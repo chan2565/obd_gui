@@ -44,7 +44,7 @@ voltage_lbl = Label(window, text="00.00 V", font=('Courier New', 14), fg='black'
 voltage_lbl.grid(column=0, row=5, sticky="nsew")
 
 # Fuel status label
-fuel_status_lbl = Label(window, text="Fuel Status: --", font=('Courier New', 14))
+fuel_status_lbl = Label(window, text="Fuel Status: --", font=('Courier New', 8))
 fuel_status_lbl.grid(column=0, row=6, sticky="nsew")
 
 ## Column 1
@@ -70,11 +70,11 @@ air_temp_lbl = Label(window, text="Intake Air Temp.\n--- C", font=('Courier New'
 air_temp_lbl.grid(column=1, row=4, sticky="nsew")
 
 # Throttle position label
-throttle_pos_lbl = Label(window, text="Throttle Position: --", font=('Courier New', 14))
+throttle_pos_lbl = Label(window, text="Throttle Position:\n--", font=('Courier New', 14))
 throttle_pos_lbl.grid(column=1, row=5, sticky="nsew")
 
 # Timing advance label
-timing_adv_lbl = Label(window, text="Timing Advance: --", font=('Courier New', 14))
+timing_adv_lbl = Label(window, text="Timing Advance:\n--", font=('Courier New', 14))
 timing_adv_lbl.grid(column=1, row=6, sticky="nsew")
 
 # Set weights

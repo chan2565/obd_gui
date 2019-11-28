@@ -18,21 +18,22 @@ def new_rpm(raw_rpm):
 		shift_lbl.configure(text="SHIFT", bg="red")
 	if rpm_int < 3000:
 		rpm_bar['style'] = 'green.Horizontal.TProgressbar'
-		shift_lbl.configure(text="", bg="")
+		shift_lbl.configure(text="", bg=rpm_lbl.cget("background"))
 def new_obd_voltage(raw_obd_voltage):
 	obd_voltage_status = str(raw_obd_voltage)
 	voltage_lbl.configure(text=obd_voltage_status)
 def new_fuel_status(raw_fuel_status):
 	fuel_status = str(raw_fuel_status)
 	fuel_status_lbl.configure(text=fuel_status)
+
 # Column 1
 def new_coolant_temp(raw_coolant_temp):
-	coolant_temp = "Coolant Temp.\n" + str(raw_coolant_temp)
+	coolant_temp = "Coolant Temp.\n" + str(raw_coolant_temp).split("deg")[0] + "C"
 	coolant_temp_lbl.configure(text=coolant_temp)
 def new_engine_load(raw_engine_load):
 	load = str(raw_engine_load).split('.')[0]
 	load_int = int(load)
-	engine_load = str(raw_engine_load) + " Load"
+	engine_load = load + "% Load"
 	engine_load_lbl.configure(text=engine_load)
 	engine_load_bar['value'] = load_int
 	if load_int >= 85:
@@ -40,13 +41,13 @@ def new_engine_load(raw_engine_load):
 	if load_int < 85:
 		rpm_bar['style'] = 'green.Horizontal.TProgressbar'
 def new_intake_temp(raw_intake_temp):
-	intake_temp = str(raw_intake_temp)
+	intake_temp = "Intake Air Temp.\n" + str(raw_intake_temp).split(" deg")[0] + " C"
 	air_temp_lbl.configure(text=intake_temp)
 def new_throttle_pos(raw_throttle_pos):
-	throttle_pos = str(raw_throttle_pos)
+	throttle_pos = "Throttle Position:\n" + str(raw_throttle_pos).split(".")[0] + "%"
 	throttle_pos_lbl.configure(text=throttle_pos)
 def new_timing_adv(raw_timing_adv):
-	timing_adv = str(raw_timing_adv)
+	timing_adv = "Timing Advance:\n" + str(raw_timing_adv).split("deg")[0] + " deg."
 	timing_adv_lbl.configure(text=timing_adv)
 
 try:
