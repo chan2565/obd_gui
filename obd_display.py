@@ -19,12 +19,12 @@ def new_rpm(raw_rpm):
 	if rpm_int < 3000:
 		rpm_bar['style'] = 'green.Horizontal.TProgressbar'
 		shift_lbl.configure(text="", bg=rpm_lbl.cget("background"))
-def new_obd_voltage(raw_obd_voltage):
-	obd_voltage_status = str(raw_obd_voltage)
-	voltage_lbl.configure(text=obd_voltage_status)
-def new_fuel_status(raw_fuel_status):
-	fuel_status = str(raw_fuel_status)
-	fuel_status_lbl.configure(text=fuel_status)
+#def new_obd_voltage(raw_obd_voltage):
+#	obd_voltage_status = str(raw_obd_voltage)
+#	voltage_lbl.configure(text=obd_voltage_status)
+#def new_fuel_status(raw_fuel_status):
+#	fuel_status = str(raw_fuel_status)
+#	fuel_status_lbl.configure(text=fuel_status)
 
 # Column 1
 def new_coolant_temp(raw_coolant_temp):
@@ -59,8 +59,8 @@ try:
 	# Column 0
 	connection.watch(obd.commands.SPEED, callback=new_speed)
 	connection.watch(obd.commands.RPM, callback=new_rpm)
-	connection.watch(obd.commands.ELM_VOLTAGE, callback=new_obd_voltage)
-	connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
+	#connection.watch(obd.commands.ELM_VOLTAGE, callback=new_obd_voltage)
+	#connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
 	# Column 1
 	connection.watch(obd.commands.COOLANT_TEMP, callback=new_coolant_temp)
 	connection.watch(obd.commands.ENGINE_LOAD, callback=new_engine_load)

@@ -40,12 +40,12 @@ shift_lbl = Label(window, text="--", font=('Courier New', 14), fg='black')
 shift_lbl.grid(column=0, row=4, sticky="nsew")
 
 # OBD voltage label
-voltage_lbl = Label(window, text="00.00 V", font=('Courier New', 14), fg='black')
-voltage_lbl.grid(column=0, row=5, sticky="nsew")
+#voltage_lbl = Label(window, text="00.00 V", font=('Courier New', 14), fg='black')
+#voltage_lbl.grid(column=0, row=5, sticky="nsew")
 
 # Fuel status label
-fuel_status_lbl = Label(window, text="Fuel Status: --", font=('Courier New', 8))
-fuel_status_lbl.grid(column=0, row=6, sticky="nsew")
+#fuel_status_lbl = Label(window, text="Fuel Status: --", font=('Courier New', 8))
+#fuel_status_lbl.grid(column=0, row=6, sticky="nsew")
 
 ## Column 1
 # Quit button

@@ -69,8 +69,8 @@ Column 0:
   Row 2: Engine RPM*
   Row 3: RPM Bar
   Row 4: Shift Label
-  Row 5: Voltage detected by OBD-II adapter*
-  Row 6: Fuel System Status*
+  Row 5:
+  Row 6: 
 Column 1:
   Row 0: Quit Button
   Row 1: Engine Coolant Temperature*
