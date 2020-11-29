@@ -96,7 +96,7 @@ shutdown_btn = Button(
     bg="red",
     command=shut_dwn,
 )
-quit_btn.grid(column=1, row=6, sticky="nsew")
+shutdown_btn.grid(column=1, row=6, sticky="nsew")
 
 # Set weights
 window.columnconfigure(0, weight=1)
