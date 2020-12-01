@@ -70,7 +70,7 @@ Column 0:
   Row 3: RPM Bar
   Row 4: Shift Label
   Row 5:
-  Row 6: 
+  Row 6:
 Column 1:
   Row 0: Quit Button
   Row 1: Engine Coolant Temperature*
@@ -79,3 +79,21 @@ Column 1:
   Row 4: Intake Air Temp*
   Row 5: Throttle Position*
   Row 6: Timing Advance*
+
+  ==New Layout==
+  Column 0:
+    Row 0: Connection Status
+    Row 1: RPM Bar
+    Row 2: Vehicle Speed*
+    Row 3: Engine Coolant Temperature*
+    Row 4: Intake Air Temp*
+    Row 5: Throttle Position*
+    Row 6: Quit Button
+  Column 1:
+    Row 0: Shift Label
+    Row 1: RPM Bar (cont.)
+    Row 2: Engine RPM*
+    Row 3: Calculated Engine Load*
+    Row 4: Timing Advance*
+    Row 5:
+    Row 6: Shutdown Button
