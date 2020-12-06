@@ -27,10 +27,10 @@ def new_rpm(raw_rpm):
     rpm_lbl.configure(text=rpm + " RPM")
     bar_num = int((rpm_int / 6800) * 100)
     rpm_bar["value"] = bar_num
-    if rpm_int >= 5800:
+    if rpm_int >= 4600:
         rpm_bar["style"] = "red.Horizontal.TProgressbar"
         shift_lbl.configure(text="SHIFT", bg="red")
-    if rpm_int < 5800:
+    if rpm_int < 4600:
         rpm_bar["style"] = "green.Horizontal.TProgressbar"
         shift_lbl.configure(text="", bg=rpm_lbl.cget("background"))
 
