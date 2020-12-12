@@ -14,8 +14,15 @@ from obd_gui import (
 
 try:
     # Start async connection to OBD adapter
-    # connection = obd.Async(baudrate=9600)
-    connection = obd.Async()
+    #connection = obd.Async()
+    #connection = obd.Async(baudrate=9600)
+    #connection = obd.Async(baudrate=19200)
+    #connection = obd.Async(baudrate=38400)
+    #connection = obd.Async(baudrate=115200)
+    #connection = obd.Async(baudrate=9600,delay_cmds=0)
+    #connection = obd.Async(baudrate=19200,delay_cmds=0)
+    #connection = obd.Async(baudrate=38400,delay_cmds=0)
+    connection = obd.Async(baudrate=115200,delay_cmds=0)
 
     # Set up codes to watch with callbacks
     connection.watch(obd.commands.SPEED, callback=new_speed)
