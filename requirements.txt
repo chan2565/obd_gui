@@ -1,2 +1,3 @@
+#python==3.7.4
+#tkinter==8.6
 obd==0.7.1
-tkinter==8.6
