@@ -46,13 +46,13 @@ mph_lbl.grid(column=0, row=2, sticky="nsew")
 
 # Coolant temperature label
 coolant_temp_lbl = Label(
-    window, text=base_coolant_temp_lbl + "--- C", font=("Courier New", 48), padx=5, pady=5
+    window, text=base_coolant_temp_lbl + "--- C", font=("Courier New", 30), padx=5, pady=5
 )
 coolant_temp_lbl.grid(column=0, row=3, sticky="nsew")
 
 # Intake air temperature label
 air_temp_lbl = Label(
-    window, text=base_air_temp_lbl + "--- C", font=("Courier New", 48), padx=5, pady=5
+    window, text=base_air_temp_lbl + "--- C", font=("Courier New", 30), padx=5, pady=5
 )
 air_temp_lbl.grid(column=0, row=4, sticky="nsew")
 
@@ -70,18 +70,18 @@ quit_btn.grid(column=0, row=6, sticky="nsew")
 
 # Column 1
 # Shift label
-shift_lbl = Label(window, text=base_shift_lbl, font=("Courier New", 30), fg="black")
+shift_lbl = Label(window, text=base_shift_lbl, font=("Courier New", 16), fg="black")
 shift_lbl.grid(column=1, row=0, sticky="nsew")
 
 # Shift bar (cont.) column=1, row=1
 
 # RPM label
-rpm_lbl = Label(window, text=base_rpm_lbl + "0000 RPM", font=("Courier New", 64), padx=5, pady=5)
+rpm_lbl = Label(window, text=base_rpm_lbl + "0000 RPM", font=("Courier New", 48), padx=5, pady=5)
 rpm_lbl.grid(column=1, row=2, sticky="nsew")
 
 # Engine load label
 engine_load_lbl = Label(
-    window, text=base_engine_load_lbl + "000%", font=("Courier New", 48), padx=5, pady=5
+    window, text=base_engine_load_lbl + "000%", font=("Courier New", 30), padx=5, pady=5
 )
 engine_load_lbl.grid(column=1, row=3, sticky="nsew")
 
