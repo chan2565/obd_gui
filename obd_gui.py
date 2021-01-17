@@ -12,11 +12,11 @@ window.configure(background="black")
 # Create green progress bar style
 rpm_style_green = ttk.Style()
 rpm_style_green.theme_use("default")
-rpm_style_green.configure("green.Horizontal.TProgressbar", background="green")
+rpm_style_green.configure("green.Horizontal.TProgressbar", background="green", troughcolor="black")
 # Create red progress bar style
 rpm_style_red = ttk.Style()
 rpm_style_red.theme_use("default")
-rpm_style_red.configure("red.Horizontal.TProgressbar", background="red")
+rpm_style_red.configure("red.Horizontal.TProgressbar", background="red", troughcolor="black")
 
 # Base Labels
 base_conn_lbl = "Connecting..."
@@ -61,9 +61,9 @@ air_temp_lbl.grid(column=0, row=4, sticky="nsew")
 quit_btn = Button(
     window,
     text="Quit",
-    font=("Courier New", 14),
-    fg="black",
-    bg="yellow",
+    font=("Courier New", 30),
+    fg="white",
+    bg="black",
     command=window.destroy,
 )
 quit_btn.grid(column=0, row=6, sticky="nsew")
@@ -106,9 +106,9 @@ def shut_dwn():
 shutdown_btn = Button(
     window,
     text="Shut Down",
-    font=("Courier New", 14),
-    fg="black",
-    bg="red",
+    font=("Courier New", 30),
+    fg="white",
+    bg="black",
     command=shut_dwn,
 )
 shutdown_btn.grid(column=1, row=6, sticky="nsew")
@@ -123,22 +123,6 @@ window.rowconfigure(3, weight=1)
 window.rowconfigure(4, weight=1)
 window.rowconfigure(5, weight=1)
 window.rowconfigure(6, weight=1)
-
-# Not used (yet)
-# OBD voltage label
-# voltage_lbl = Label(window, text="00.00 V", font=('Courier New', 14), fg='black')
-# voltage_lbl.grid(column=0, row=5, sticky="nsew")
-
-# Fuel status label
-# fuel_status_lbl = Label(window, text="Fuel Status: --", font=('Courier New', 8))
-# fuel_status_lbl.grid(column=0, row=6, sticky="nsew")
-
-# Engine load bar
-# engine_load_bar = ttk.Progressbar(
-#    window, length=250, style="green.Horizontal.TProgressbar"
-# )
-# engine_load_bar["value"] = 10
-# engine_load_bar.grid(column=1, row=3, sticky="nsew")
 
 
 # Methods for updating stats
