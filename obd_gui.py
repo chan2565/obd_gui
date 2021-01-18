@@ -127,8 +127,9 @@ window.rowconfigure(6, weight=1)
 
 # Methods for updating stats
 def new_speed(raw_speed):
+    speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
-    mph = str(int(float(kph) * 0.6214))
+    mph = str(int(float(kph) * 0.6214 * speed_factor))
     mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
 
 
@@ -183,13 +184,3 @@ def new_throttle_pos(raw_throttle_pos):
 def new_timing_adv(raw_timing_adv):
     timing_adv = base_timing_adv_lbl + str(raw_timing_adv).split("deg")[0] + " deg."
     timing_adv_lbl.configure(text=timing_adv)
-
-
-# def new_obd_voltage(raw_obd_voltage):
-# 	obd_voltage_status = str(raw_obd_voltage)
-# 	voltage_lbl.configure(text=obd_voltage_status)
-
-
-# def new_fuel_status(raw_fuel_status):
-# 	fuel_status = str(raw_fuel_status)
-# 	fuel_status_lbl.configure(text=fuel_status)
