@@ -143,6 +143,8 @@ def new_speed(raw_speed):
     speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
     mph = round(float(kph) * 0.6214 * speed_factor)
+    mph_lbl.configure(text=f"{base_mph_lbl}{mph} MPH")
+    
     if mph == 0:
         timing = True
     elif mph > 0 and timing:
@@ -154,7 +156,6 @@ def new_speed(raw_speed):
         accel_lbl.configure(text=f"{base_accel_lbl}{delta} s")
         with open("accel_log.csv", "a") as file:
             file.write(f"{start_time},{end_time},{mph},{delta}\n")
-    mph_lbl.configure(text=f"{base_mph_lbl}{mph} MPH")
 
 
 def new_rpm(raw_rpm):
