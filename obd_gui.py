@@ -129,7 +129,7 @@ window.rowconfigure(6, weight=1)
 def new_speed(raw_speed):
     speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
-    mph = str(int(float(kph) * 0.6214 * speed_factor))
+    mph = str(round(float(kph) * 0.6214 * speed_factor))
     mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
 
 
@@ -137,7 +137,7 @@ def new_rpm(raw_rpm):
     rpm = str(raw_rpm).split(".")[0]
     rpm_int = int(rpm)
     rpm_lbl.configure(text=base_rpm_lbl + rpm + " RPM")
-    bar_num = int((rpm_int / 6800) * 100)
+    bar_num = round((rpm_int / 6800) * 100)
     rpm_bar["value"] = bar_num
     if rpm_int >= 4600:
         rpm_bar["style"] = "red.Horizontal.TProgressbar"
@@ -150,9 +150,9 @@ def new_rpm(raw_rpm):
 def new_coolant_temp(raw_coolant_temp):
     coolant_temp = str(raw_coolant_temp).split("deg")[0]
     int_coolant_temp = int(coolant_temp)
-    if int_coolant_temp < 85:
+    if int_coolant_temp < 75:
         coolant_temp_lbl.configure(fg="black", bg="yellow")
-    elif (int_coolant_temp >= 85) and (int_coolant_temp < 100):
+    elif (int_coolant_temp >= 75) and (int_coolant_temp < 100):
         coolant_temp_lbl.configure(fg="black", bg="green")
     elif (int_coolant_temp >= 100):
         coolant_temp_lbl.configure(fg="black", bg="red")
