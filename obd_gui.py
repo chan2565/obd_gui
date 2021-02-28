@@ -1,4 +1,5 @@
 from tkinter import Tk, ttk, Label, Button
+from datetime import datetime
 import os
 
 # Create Window
@@ -29,7 +30,12 @@ active_shift_lbl = "SHIFT~!"
 base_rpm_lbl = ""
 base_engine_load_lbl = "Load: "
 base_timing_adv_lbl = "Time: "
+base_accel_lbl = "0-60: "
 
+# 0-60 timer vars
+start_time = datetime.now()
+end_time = datetime.now()
+timing = False
 
 # Column 0
 # Connection label
@@ -56,6 +62,12 @@ air_temp_lbl = Label(
     window, text=base_air_temp_lbl + "--- C", font=("Courier New", 30), padx=5, pady=5, fg="white", bg="black"
 )
 air_temp_lbl.grid(column=0, row=4, sticky="nsew")
+
+# O-60 timer label
+accel_lbl = Label(
+    window, text=base_accel_lbl + "---- s", font=("Courier New", 30), padx=5, pady=5, fg="white", bg="black"
+)
+accel_lbl.grid(column=0, row=5, sticky="nsew")
 
 # Quit button
 quit_btn = Button(
@@ -126,11 +138,23 @@ window.rowconfigure(6, weight=1)
 
 
 # Methods for updating stats
+
 def new_speed(raw_speed):
     speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
-    mph = str(round(float(kph) * 0.6214 * speed_factor))
-    mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
+    mph = round(float(kph) * 0.6214 * speed_factor)
+    if mph == 0:
+        timing = True
+    elif mph > 0 and timing:
+        start_time = datetime.now()
+    elif mph >= 60 and timing:
+        end_time = datetime.now()
+        timing = False
+        delta = round((end_time - start_time).total_seconds(), 2)
+        accel_lbl.configure(text=f"{base_accel_lbl}{delta} s")
+        with open("accel_log.csv", "a") as file:
+            file.write(f"{start_time},{end_time},{mph},{delta}")
+    mph_lbl.configure(text=f"{base_mph_lbl}{mph} MPH")
 
 
 def new_rpm(raw_rpm):
