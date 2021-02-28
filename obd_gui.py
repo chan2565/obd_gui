@@ -153,7 +153,7 @@ def new_speed(raw_speed):
         delta = round((end_time - start_time).total_seconds(), 2)
         accel_lbl.configure(text=f"{base_accel_lbl}{delta} s")
         with open("accel_log.csv", "a") as file:
-            file.write(f"{start_time},{end_time},{mph},{delta}")
+            file.write(f"{start_time},{end_time},{mph},{delta}\n")
     mph_lbl.configure(text=f"{base_mph_lbl}{mph} MPH")
 
 
