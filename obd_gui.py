@@ -36,6 +36,7 @@ base_accel_lbl = "0-60: "
 start_time = datetime.now()
 end_time = datetime.now()
 timing = False
+ready = False
 
 # Column 0
 # Connection label
@@ -145,17 +146,28 @@ def new_speed(raw_speed):
     mph = round(float(kph) * 0.6214 * speed_factor)
     mph_lbl.configure(text=base_mph_lbl + str(mph) + " MPH")
     
+    global ready
+    global timing
+    global start_time
+    global end_time
     if mph == 0:
+        ready = True
+        timing = False
+        print("Timing reset.")
+    elif mph > 0 and ready:
         timing = True
-    elif mph > 0 and timing:
+        ready = False
         start_time = datetime.now()
+        print("Start time:" + str(start_time) + " " + str(mph))
     elif mph >= 60 and timing:
         end_time = datetime.now()
+        print("End time: " + str(end_time) + " " + str(mph))
         timing = False
+        ready = False
         delta = round((end_time - start_time).total_seconds(), 2)
-        accel_lbl.configure(text=base_accel_lbl + delta + " s")
+        accel_lbl.configure(text=base_accel_lbl + str(delta) + " s")
         with open("accel_log.csv", "a") as file:
-            file.write(start_time + "," + end_time + "," + mph + "," + delta + "\n")
+            file.write(str(start_time) + "," + str(end_time) + "," + str(mph) + "," + str(delta) + "\n")
 
 
 def new_rpm(raw_rpm):
