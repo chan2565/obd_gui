@@ -1,0 +1,43 @@
+>>> cmds = connection.supported_commands
+>>> for cmd in cmds:
+...     print(cmd)
+... 
+b'0600': Supported MIDs [01-20]
+b'0111': Throttle Position
+b'0113': O2 Sensors Present
+b'0207': DTC Long Term Fuel Trim - Bank 1
+b'0211': DTC Throttle Position
+b'0104': Calculated Engine Load
+b'0105': Engine Coolant Temperature
+b'010F': Intake Air Temp
+b'010C': Engine RPM
+b'010D': Vehicle Speed
+b'0213': DTC O2 Sensors Present
+b'04': Clear DTCs and Freeze data
+b'0103': Fuel System Status
+b'020C': DTC Engine RPM
+b'0201': DTC Status since DTCs cleared
+b'020E': DTC Timing Advance
+b'020F': DTC Intake Air Temp
+b'0115': O2: Bank 1 - Sensor 2 Voltage
+b'021C': DTC OBD Standards Compliance
+b'0215': DTC O2: Bank 1 - Sensor 2 Voltage
+b'0214': DTC O2: Bank 1 - Sensor 1 Voltage
+b'0203': DTC Fuel System Status
+b'0100': Supported PIDs [01-20]
+b'0101': Status since DTCs cleared
+b'0106': Short Term Fuel Trim - Bank 1
+b'ATI': ELM327 version string
+b'0205': DTC Engine Coolant Temperature
+b'03': Get DTCs
+b'07': Get DTCs from the current/last driving cycle
+b'020B': DTC Intake Manifold Pressure
+b'0107': Long Term Fuel Trim - Bank 1
+b'0206': DTC Short Term Fuel Trim - Bank 1
+b'0204': DTC Calculated Engine Load
+b'ATRV': Voltage detected by OBD-II adapter
+b'0114': O2: Bank 1 - Sensor 1 Voltage
+b'010E': Timing Advance
+b'020D': DTC Vehicle Speed
+b'010B': Intake Manifold Pressure
+b'011C': OBD Standards Compliance
