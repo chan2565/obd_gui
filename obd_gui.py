@@ -153,20 +153,17 @@ def new_speed(raw_speed):
     if mph == 0:
         ready = True
         timing = False
-        print("Timing reset.")
     elif mph > 0 and ready:
         timing = True
         ready = False
         start_time = datetime.now()
-        print("Start time:" + str(start_time) + " " + str(mph))
     elif mph >= 60 and timing:
-        end_time = datetime.now()
-        print("End time: " + str(end_time) + " " + str(mph))
         timing = False
         ready = False
+        end_time = datetime.now()
         delta = round((end_time - start_time).total_seconds(), 2)
         accel_lbl.configure(text=base_accel_lbl + str(delta) + " s")
-        with open("accel_log.csv", "a") as file:
+        with open("logs/accel_log_" + str(datetime.now().date()) + ".csv", "a") as file:
             file.write(str(start_time) + "," + str(end_time) + "," + str(mph) + "," + str(delta) + "\n")
 
 
