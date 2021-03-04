@@ -163,8 +163,8 @@ def new_speed(raw_speed):
         end_time = datetime.now()
         delta = round((end_time - start_time).total_seconds(), 2)
         accel_lbl.configure(text=base_accel_lbl + str(delta) + " s")
-        with open("logs/accel_log_" + str(datetime.now().date()) + ".csv", "a") as file:
-            file.write(str(start_time) + "," + str(end_time) + "," + str(mph) + "," + str(delta) + "\n")
+        #with open("logs/accel_log_" + str(datetime.now().date()) + ".csv", "a") as file:
+        #    file.write(str(start_time) + "," + str(end_time) + "," + str(mph) + "," + str(delta) + "\n")
 
 
 def new_rpm(raw_rpm):
