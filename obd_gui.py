@@ -1,6 +1,5 @@
 from tkinter import Tk, ttk, Label, Button
 import os
-import asyncio
 
 # Create Window
 window = Tk()
@@ -131,85 +130,57 @@ async def new_speed(raw_speed):
     speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
     mph = str(round(float(kph) * 0.6214 * speed_factor))
-    mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
+    await mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
 
 
 async def new_rpm(raw_rpm):
     rpm = str(raw_rpm).split(".")[0]
     rpm_int = int(rpm)
-    rpm_lbl.configure(text=base_rpm_lbl + rpm + " RPM")
+    await rpm_lbl.configure(text=base_rpm_lbl + rpm + " RPM")
     bar_num = round((rpm_int / 6800) * 100)
     rpm_bar["value"] = bar_num
     if rpm_int >= 4600:
         rpm_bar["style"] = "red.Horizontal.TProgressbar"
-        shift_lbl.configure(text=active_shift_lbl, bg="red", fg="black")
+        await shift_lbl.configure(text=active_shift_lbl, bg="red", fg="black")
     if rpm_int < 4600:
         rpm_bar["style"] = "green.Horizontal.TProgressbar"
-        shift_lbl.configure(text=base_shift_lbl, fg="white", bg="black")
+        await shift_lbl.configure(text=base_shift_lbl, fg="white", bg="black")
 
 
 async def new_coolant_temp(raw_coolant_temp):
     coolant_temp = str(raw_coolant_temp).split("deg")[0]
     int_coolant_temp = int(coolant_temp)
     if int_coolant_temp < 75:
-        coolant_temp_lbl.configure(fg="black", bg="yellow")
+        await coolant_temp_lbl.configure(fg="black", bg="yellow")
     elif (int_coolant_temp >= 75) and (int_coolant_temp < 100):
-        coolant_temp_lbl.configure(fg="black", bg="green")
+        await coolant_temp_lbl.configure(fg="black", bg="green")
     elif (int_coolant_temp >= 100):
-        coolant_temp_lbl.configure(fg="black", bg="red")
+        await coolant_temp_lbl.configure(fg="black", bg="red")
     coolant_temp_txt = base_coolant_temp_lbl + coolant_temp + " C"
-    coolant_temp_lbl.configure(text=coolant_temp_txt)
+    await coolant_temp_lbl.configure(text=coolant_temp_txt)
 
 
 async def new_engine_load(raw_engine_load):
     load = str(raw_engine_load).split(".")[0]
     load_int = int(load)
     engine_load = base_engine_load_lbl + load + "%"
-    engine_load_lbl.configure(text=engine_load)
+    await engine_load_lbl.configure(text=engine_load)
     if load_int >= 85:
-        engine_load_lbl.configure(fg="black", bg="red")
+        await engine_load_lbl.configure(fg="black", bg="red")
     if load_int < 85:
-        engine_load_lbl.configure(fg="white", bg="black")
+        await engine_load_lbl.configure(fg="white", bg="black")
 
 
 async def new_intake_temp(raw_intake_temp):
     intake_temp = base_air_temp_lbl + str(raw_intake_temp).split(" deg")[0] + " C"
-    air_temp_lbl.configure(text=intake_temp)
+    await air_temp_lbl.configure(text=intake_temp)
 
 
 async def new_throttle_pos(raw_throttle_pos):
     throttle_pos = base_throttle_pos_lbl + str(raw_throttle_pos).split(".")[0] + "%"
-    throttle_pos_lbl.configure(text=throttle_pos)
+    await throttle_pos_lbl.configure(text=throttle_pos)
 
 
 async def new_timing_adv(raw_timing_adv):
     timing_adv = base_timing_adv_lbl + str(raw_timing_adv).split("deg")[0] + " deg."
-    timing_adv_lbl.configure(text=timing_adv)
-
-
-async def new_speed_async(raw_speed):
-    await new_speed(raw_speed)
-
-
-async def new_rpm_async(raw_rpm):
-    await new_rpm(raw_rpm)
-
-
-async def new_coolant_temp_async(raw_coolant_temp):
-    await new_coolant_temp(raw_coolant_temp)
-
-
-async def new_engine_load_async(raw_engine_load):
-    await new_engine_load(raw_engine_load)
-
-
-async def new_intake_temp_async(raw_intake_temp):
-    await new_intake_temp(raw_intake_temp)
-
-
-async def new_throttle_pos_async(raw_throttle_pos):
-    await new_throttle_pos(raw_throttle_pos)
-
-
-async def new_timing_adv_async(raw_timing_adv):
-    await new_timing_adv(raw_timing_adv)
+    await timing_adv_lbl.configure(text=timing_adv)
