@@ -1,5 +1,6 @@
 from tkinter import Tk, ttk, Label, Button
 import os
+import asyncio
 
 # Create Window
 window = Tk()
@@ -126,14 +127,14 @@ window.rowconfigure(6, weight=1)
 
 
 # Methods for updating stats
-def new_speed(raw_speed):
+async def new_speed(raw_speed):
     speed_factor = .9667519182
     kph = str(raw_speed).split(" ")[0]
     mph = str(round(float(kph) * 0.6214 * speed_factor))
     mph_lbl.configure(text=base_mph_lbl + mph + " MPH")
 
 
-def new_rpm(raw_rpm):
+async def new_rpm(raw_rpm):
     rpm = str(raw_rpm).split(".")[0]
     rpm_int = int(rpm)
     rpm_lbl.configure(text=base_rpm_lbl + rpm + " RPM")
@@ -147,7 +148,7 @@ def new_rpm(raw_rpm):
         shift_lbl.configure(text=base_shift_lbl, fg="white", bg="black")
 
 
-def new_coolant_temp(raw_coolant_temp):
+async def new_coolant_temp(raw_coolant_temp):
     coolant_temp = str(raw_coolant_temp).split("deg")[0]
     int_coolant_temp = int(coolant_temp)
     if int_coolant_temp < 75:
@@ -160,7 +161,7 @@ def new_coolant_temp(raw_coolant_temp):
     coolant_temp_lbl.configure(text=coolant_temp_txt)
 
 
-def new_engine_load(raw_engine_load):
+async def new_engine_load(raw_engine_load):
     load = str(raw_engine_load).split(".")[0]
     load_int = int(load)
     engine_load = base_engine_load_lbl + load + "%"
@@ -171,16 +172,16 @@ def new_engine_load(raw_engine_load):
         engine_load_lbl.configure(fg="white", bg="black")
 
 
-def new_intake_temp(raw_intake_temp):
+async def new_intake_temp(raw_intake_temp):
     intake_temp = base_air_temp_lbl + str(raw_intake_temp).split(" deg")[0] + " C"
     air_temp_lbl.configure(text=intake_temp)
 
 
-def new_throttle_pos(raw_throttle_pos):
+async def new_throttle_pos(raw_throttle_pos):
     throttle_pos = base_throttle_pos_lbl + str(raw_throttle_pos).split(".")[0] + "%"
     throttle_pos_lbl.configure(text=throttle_pos)
 
 
-def new_timing_adv(raw_timing_adv):
+async def new_timing_adv(raw_timing_adv):
     timing_adv = base_timing_adv_lbl + str(raw_timing_adv).split("deg")[0] + " deg."
     timing_adv_lbl.configure(text=timing_adv)
