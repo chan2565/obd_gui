@@ -8,6 +8,13 @@ from obd_gui import (
     new_intake_temp,
     new_throttle_pos,
     new_timing_adv,
+    new_speed_async,
+    new_rpm_async,
+    new_coolant_temp_async,
+    new_engine_load_async,
+    new_intake_temp_async,
+    new_throttle_pos_async,
+    new_timing_adv_async,
     conn_lbl,
 )
 
@@ -25,13 +32,13 @@ try:
     #connection = obd.Async(baudrate=115200,delay_cmds=0)
 
     # Set up codes to watch with callbacks
-    connection.watch(obd.commands.SPEED, callback=new_speed)
-    connection.watch(obd.commands.RPM, callback=new_rpm)
-    connection.watch(obd.commands.COOLANT_TEMP, callback=new_coolant_temp)
-    connection.watch(obd.commands.ENGINE_LOAD, callback=new_engine_load)
-    connection.watch(obd.commands.INTAKE_TEMP, callback=new_intake_temp)
-    connection.watch(obd.commands.THROTTLE_POS, callback=new_throttle_pos)
-    connection.watch(obd.commands.TIMING_ADVANCE, callback=new_timing_adv)
+    connection.watch(obd.commands.SPEED, callback=new_speed_async)
+    connection.watch(obd.commands.RPM, callback=new_rpm_async)
+    connection.watch(obd.commands.COOLANT_TEMP, callback=new_coolant_temp_async)
+    connection.watch(obd.commands.ENGINE_LOAD, callback=new_engine_load_async)
+    connection.watch(obd.commands.INTAKE_TEMP, callback=new_intake_temp_async)
+    connection.watch(obd.commands.THROTTLE_POS, callback=new_throttle_pos_async)
+    connection.watch(obd.commands.TIMING_ADVANCE, callback=new_timing_adv_async)
     # connection.watch(obd.commands.ELM_VOLTAGE, callback=new_obd_voltage)
     # connection.watch(obd.commands.FUEL_STATUS, callback=new_fuel_status)
 

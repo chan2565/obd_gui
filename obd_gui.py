@@ -185,3 +185,31 @@ async def new_throttle_pos(raw_throttle_pos):
 async def new_timing_adv(raw_timing_adv):
     timing_adv = base_timing_adv_lbl + str(raw_timing_adv).split("deg")[0] + " deg."
     timing_adv_lbl.configure(text=timing_adv)
+
+
+async def new_speed_async(raw_speed):
+    await new_speed(raw_speed)
+
+
+async def new_rpm_async(raw_rpm):
+    await new_rpm(raw_rpm)
+
+
+async def new_coolant_temp_async(raw_coolant_temp):
+    await new_coolant_temp(raw_coolant_temp)
+
+
+async def new_engine_load_async(raw_engine_load):
+    await new_engine_load(raw_engine_load)
+
+
+async def new_intake_temp_async(raw_intake_temp):
+    await new_intake_temp(raw_intake_temp)
+
+
+async def new_throttle_pos_async(raw_throttle_pos):
+    await new_throttle_pos(raw_throttle_pos)
+
+
+async def new_timing_adv_async(raw_timing_adv):
+    await new_timing_adv(raw_timing_adv)
