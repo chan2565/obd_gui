@@ -178,7 +178,7 @@ def new_rpm(raw_rpm):
         shift_lbl.configure(text=active_shift_lbl, bg="red", fg="black")
     if rpm_int < 4600:
         rpm_bar["style"] = "green.Horizontal.TProgressbar"
-        shift_lbl.configure(text=base_shift_lbl, fg="white", bg="black")
+        shift_lbl.configure(text=base_shift_lbl, bg="black", fg="white")
 
 
 def new_coolant_temp(raw_coolant_temp):
